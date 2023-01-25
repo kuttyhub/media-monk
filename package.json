@@ -21,10 +21,13 @@
     "build-prod-html": "cp -v src/*.html dist/",
     "build": "npm-run-all build-prod-ts build-prod-sass build-prod-assets build-prod-html",
     "watch-ts": "tsc --watch",
-    "watch-scss": "sass src/styles:dist/styles --watch",
-    "watch-http": "es-dev-server --app-index index.html --node-resolve --watch --open",
+    "watch-scss": "sass src/styles --watch",
+    "watch-http": "parcel src/index.html",
     "start": "concurrently --kill-others 'npm:watch-*'"
   },
   "author": "Nishanth S",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
 }
