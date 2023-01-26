@@ -1,0 +1,357 @@
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--black);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: all 1s ease-in-out;
+  #progress {
+    position: absolute;
+    bottom: 10vh;
+    right: 10vh;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 0px;
+      width: 0px;
+      opacity: 0;
+      transform: translate3d(0px, 100px, 0px);
+      transition: all 1s ease-in-out;
+    }
+    .slogan-wrapper {
+      height: 0px;
+      width: 0px;
+      opacity: 0;
+      display: flex;
+      flex-direction: row;
+      gap: 0px;
+      transition: all 1s ease-in-out;
+
+      .slogan-container {
+        overflow: hidden;
+        display: flex;
+        align-items: flex-start;
+        transition: all 1s ease-in-out;
+        span {
+          text-align: left;
+        }
+      }
+      text-align: center;
+    }
+  }
+
+  .in-view {
+    img {
+      height: 130px;
+      width: 100px;
+      opacity: 1;
+      animation: 1s ease-in-out 0s infinite alternate ossulation;
+      transform: translate3d(0px, 0px, 0px);
+    }
+    .slogan-wrapper {
+      height: 100%;
+      width: 170px;
+      opacity: 1;
+
+      .slogan-container {
+        min-width: 10px;
+      }
+    }
+  }
+
+  .text-reveal {
+    .slogan-container {
+      width: 150px;
+      animation: reveal 3s;
+      span {
+        animation: slide 3s;
+      }
+    }
+  }
+  @keyframes ossulation {
+    from {
+      transform: translate3d(0px, 0px, 0px);
+    }
+    to {
+      transform: translate3d(0px, 10px, 0px);
+    }
+  }
+  @keyframes slide {
+    0% {
+      margin-left: -100%;
+    }
+    100% {
+      margin-left: 0%;
+    }
+  }
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+.hide-loader {
+  opacity: 0;
+  z-index: -1;
+}
+@keyframes hidelayer {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  30% {
+    opacity: 0.1;
+  }
+  0% {
+    opacity: 0;
+  }
+}
+
+main {
+  display: flex;
+  width: fit-content;
+  height: 100vh;
+
+  .hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .navigation {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    padding: 1vh;
+    cursor: pointer;
+
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+    }
+
+    &-left {
+      left: 0;
+    }
+    &-right {
+      right: 0;
+    }
+  }
+  .nav-bar {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3vh 5vh;
+    .pagination {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      div {
+        display: flex;
+        flex-wrap: nowrap;
+        .current {
+          margin: 1px;
+          background-color: var(--white);
+          color: var(--black);
+        }
+        span {
+          min-width: 10px;
+          padding: 1px 5px;
+          border: 1px dotted var(--light-gray);
+          cursor: pointer;
+          width: 20px;
+          transition: all 0.4s ease-in-out;
+        }
+      }
+      .hide {
+        opacity: 0;
+      }
+      p {
+        padding: 10px;
+        padding-left: 0px;
+        font-weight: normal;
+        font-size: var(--font-sm);
+        align-self: center;
+        color: var(--light-gray);
+        transition: all 0.4s ease;
+
+        span {
+          border: none;
+          cursor: auto;
+        }
+      }
+    }
+
+    .monk-logo {
+      align-self: center;
+      white-space: pre-line;
+      text-align: center;
+      font-size: var(--font-x-md);
+    }
+  }
+
+  #section-9 {
+    width: 70vw;
+    height: 100%;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 2.5vh 5vh;
+    transition: all 0.4s ease-in-out;
+    .title {
+      justify-self: flex-start;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+      p {
+        word-break: break-word;
+        text-align: right;
+      }
+      .careers {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        a {
+          margin-left: 5px;
+          border-bottom: 1px solid var(--white);
+        }
+      }
+      .socials {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        .links {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          img {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3vh;
+    gap: 10px;
+    span {
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: var(--font-x-lg);
+      width: fit-content;
+
+      border-bottom: 1px solid var(--white);
+    }
+  }
+
+  @media (max-width: 787px) {
+    .navigation {
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+#canvas {
+  width: fit-content;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background: url("/assets/images/background.jpg"), rgba(0, 0, 0, 0.35);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+
+  .in-view {
+    h1,
+    p {
+      opacity: 1;
+    }
+  }
+
+  section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5vh 8vh;
+    // border: 1px solid white;
+    p {
+      padding-bottom: 15vh;
+      max-width: 70vw;
+      word-wrap: break-word;
+      color: var(--light-gray);
+      font-size: var(--font-md);
+    }
+
+    h1,
+    p {
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+
+  #section-0 {
+    justify-content: space-between;
+  }
+  #section-3,
+  #section-4,
+  #section-5 {
+    align-items: flex-end;
+    .title {
+      align-items: flex-end;
+    }
+  }
+
+  @media (max-width: 787px) {
+    section {
+      padding: 2.5vh 5vh;
+    }
+  }
+}

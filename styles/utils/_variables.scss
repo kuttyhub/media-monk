@@ -1,6 +1,7 @@
 :root {
   --bg: #020a13;
   --white: #ffffff;
+  --black: #000;
   --gray: #9e9e9c;
   --light-gray: #e1e1e1;
   --lighter-gray: #222;
@@ -24,6 +25,12 @@
     --font-sm: 0.813em;
     --font-md: 1.011em;
     --font-x-md: 1.517em;
-    --font-x-lg: 2.775em;
+    --font-x-lg: 2.575em;
+  }
+  @media (max-width: 700px) {
+    --font-sm: 0.513em;
+    --font-md: 0.813em;
+    --font-x-md: 1em;
+    --font-x-lg: 1.7em;
   }
 }
